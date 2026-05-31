@@ -1,0 +1,381 @@
+/* ==========================
+   CSS VARIABLES (LIGHT MODE)
+========================== */
+
+:root {
+    --primary: #ec187b;
+    --secondary: #b11a47;
+    --background: #ffffff;
+    --surface: #f8fafc;
+    --text: #51163d;
+    --text-light: #6b7280;
+    --border: #e5e7eb;
+
+    --shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+
+    --radius: 16px;
+
+    --transition: all 0.3s ease;
+}
+
+/* ==========================
+   DARK MODE
+========================== */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0f172a;
+        --surface: #1e293b;
+        --text: #f8fafc;
+        --text-light: #cbd5e1;
+        --border: #334155;
+        --secondary: #f8fafc;
+    }
+}
+
+/* ==========================
+   RESET
+========================== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        "Inter",
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.7;
+
+    transition: var(--transition);
+}
+
+/* ==========================
+   ACCESSIBILITY
+========================== */
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+}
+
+.skip-link:focus {
+    left: 20px;
+    top: 20px;
+    background: black;
+    color: white;
+    padding: 10px;
+    z-index: 1000;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+header {
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+header p {
+    text-align: center;
+    color: var(--text-light);
+}
+
+/* ==========================
+   NAVIGATION
+========================== */
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    list-style: none;
+    margin-top: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+/* ==========================
+   MAIN LAYOUT
+========================== */
+
+main {
+    width: min(1200px, 90%);
+    margin: auto;
+    padding: 3rem 0;
+
+    display: grid;
+    gap: 3rem;
+}
+
+/* ==========================
+   HERO SECTION
+========================== */
+
+section {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+
+    transition: var(--transition);
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+#hero-heading {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+}
+
+section p {
+    color: var(--text-light);
+}
+
+/* ==========================
+   PROJECT GRID
+========================== */
+
+#projects-heading {
+    margin-bottom: 2rem;
+}
+
+section article {
+    background: var(--background);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 1.5rem;
+
+    transition: var(--transition);
+}
+
+section article:hover {
+    transform: scale(1.03);
+}
+
+section article h3 {
+    margin-bottom: .75rem;
+}
+
+section article a {
+    display: inline-block;
+    margin-top: 1rem;
+
+    background: var(--primary);
+    color: white;
+
+    padding: .75rem 1.25rem;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+}
+
+section article a:hover {
+    opacity: 0.9;
+}
+
+/* ==========================
+   PROJECT GRID LAYOUT
+========================== */
+
+.projects-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* ==========================
+   CONTACT FORM
+========================== */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+label {
+    font-weight: 600;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 1rem;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--background);
+    color: var(--text);
+
+    font-size: 1rem;
+}
+
+button {
+    border: none;
+
+    background: var(--primary);
+    color: white;
+
+    padding: 1rem;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer {
+    margin-top: 3rem;
+
+    text-align: center;
+
+    background: var(--surface);
+
+    padding: 2rem;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    list-style: none;
+
+    margin-top: 1rem;
+}
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (min-width: 768px) {
+
+    .projects-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    header {
+        padding: 2rem;
+    }
+}
+
+/* ==========================
+   DESKTOP
+========================== */
+
+@media (min-width: 1024px) {
+
+    main {
+        gap: 4rem;
+    }
+
+    .projects-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    nav ul {
+        gap: 2rem;
+    }
+
+    section {
+        padding: 3rem;
+    }
+}
+
+/* ==========================
+   LARGE SCREENS
+========================== */
+
+@media (min-width: 1440px) {
+
+    main {
+        max-width: 1400px;
+    }
+
+    .projects-grid {
+        grid-template-columns:
+            repeat(4, 1fr);
+    }
+}
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeUp 0.8s ease;
+}
